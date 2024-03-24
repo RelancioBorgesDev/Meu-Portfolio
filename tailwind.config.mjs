@@ -1,8 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-}
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    extend: {
+      colors: {
+        home: "#1E1D1D",
+        "all-header": "#302C2C",
+        tag: "#312F2F",
+        "tag-2": "#272424",
+        main: "#FFFF",
+      },
+      fontSize: {
+        title: "4rem",
+        description: "0.813rem",
+        small: "0.75rem",
+      },
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        rubik: ["Rubik", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+};
