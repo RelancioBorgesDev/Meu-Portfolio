@@ -12,6 +12,9 @@ export default {
       },
       fontSize: {
         title: "4rem",
+        "medium-title": "3rem",
+        "sm-title": "2rem",
+        "nav-items": "1.8rem",
         description: "0.813rem",
         small: "0.75rem",
       },
