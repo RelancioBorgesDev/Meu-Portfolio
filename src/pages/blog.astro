@@ -5,9 +5,9 @@ import HomeLayout from "../layouts/HomeLayout.astro"
 
 <HomeLayout title="Inicio | Blog">
 
-	<main class="w-full h-full flex flex-col px-4" transition:animate="fade">
+	<main class="w-full h-full flex flex-col px-4" transition:animate="slide">
 		<section>
-			<SectionHeader hasAll title="Blog"/>
+			<SectionHeader hasAll title="Blog" transition:name="sec-header"/>
 
 		</section>
 	</main>
