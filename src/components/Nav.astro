@@ -31,7 +31,7 @@ const navItems = [
     </header>
     <ul class="text-nav-items flex flex-col gap-2">
         {navItems.map(({ icon, link, link_title}) => (
-            <NavLink icon={icon} link={link} link_title={link_title} pathname={pathname}/>
+            <NavLink link={link} link_title={link_title} pathname={pathname}/>
         ))}   
     <ul/>
 
