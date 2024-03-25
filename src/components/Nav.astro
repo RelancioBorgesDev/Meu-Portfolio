@@ -24,18 +24,18 @@ const navItems = [
 ]
 ---
 
-<nav class="w-3/6 font-rubik flex flex-col gap-8">
+<nav class="w-3/6 max-lg:w-full font-rubik flex flex-col gap-8 relative">
     <header>
-        <h1 class="text-medium-title font-bold">Relancio Borges</h1>
+        <h1 class="text-medium-title max-sm:text-sm-title font-bold">Relancio Borges</h1>
         <p class="text-description italic text-slate-300/70 font-bold">Desenvolvedor especialista em transformar ideias em projetos.</p>
     </header>
-    <ul class="text-nav-items flex flex-col gap-2">
-        {navItems.map(({ icon, link, link_title}) => (
+
+    <ul class="text-nav-items flex flex-col max-lg:gap-4 gap-2">
+        {navItems.map(({ link, link_title}) => (
             <NavLink link={link} link_title={link_title} pathname={pathname}/>
         ))}   
     <ul/>
-
-    <footer class="text-main flex items-center gap-4">
+    <footer class="text-main flex items-center gap-4 ">
         <a href="#">
             <FaGithub size={28}/>
         </a>
@@ -45,3 +45,4 @@ const navItems = [
     </footer>
 
 </nav>
+
