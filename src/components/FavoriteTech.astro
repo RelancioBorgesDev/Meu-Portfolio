@@ -1,0 +1,12 @@
+---
+import { CaretRight } from "phosphor-react";
+type Props = {
+    tech: string
+}
+const {tech} = Astro.props
+---
+
+<div class="flex items-center gap-2 font-semibold">
+    <CaretRight size={12} />
+    {tech}
+</div>
