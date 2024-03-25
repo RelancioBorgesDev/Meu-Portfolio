@@ -8,7 +8,9 @@ export default {
         "all-header": "#302C2C",
         tag: "#312F2F",
         "tag-2": "#272424",
+        "tag-3": "#4F4B4B",
         main: "#FFFF",
+        "light-border": "#7A7575"
       },
       fontSize: {
         title: "4rem",

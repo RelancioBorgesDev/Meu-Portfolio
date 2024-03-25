@@ -1,10 +1,13 @@
 ---
+import ProjectCard from "../components/ProjectCard.astro";
 import AllLayout from "../layouts/AllLayout.astro";
 
 
 ---
 
 <AllLayout title="Meus Projetos" header_title="Meus Projetos" header_description="Discover stories, thinking, and expertise from writers on any topic." transition:animate={"fade"}>
-
+    <section class="grid grid-cols-3 items-center justify-center w-full px-8 py-12">
+        <ProjectCard/>
+    </section>
 
 </AllLayout>
