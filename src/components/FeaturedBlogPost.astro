@@ -1,0 +1,30 @@
+---
+import Tag from "./Tag";
+import { LuDot } from "react-icons/lu";type Props = {
+    title: string
+    description: string
+    tags?: Array<string> 
+
+}
+
+const {title, description, tags} = Astro.props
+---
+
+
+<div class="flex justify-between gap-8 hover:bg-gray-500/5 rounded-lg cursor-pointer p-2 transition-all ease-in-out duration-300">
+    <div class="flex flex-col gap-4">
+        <header>
+            <h1 class="text-sm-title font-bold">{title}</h1>
+            <p class="text-gray-500/95 text-description">{description}</p>
+        </header>
+        <footer class="flex items-center gap-.5">
+            <Tag tag="Março, 2024"/>
+            <LuDot size={22} className="text-gray-500/95"/>
+            <Tag tag="5 min read"/>
+            <LuDot size={22} className="text-gray-500/95"/>
+            <Tag tag="IA"/>
+        </footer>
+    </div>
+    <div class="w-[239px] h-[135px] bg-gray-950 rounded-lg"></div>
+    
+</div>

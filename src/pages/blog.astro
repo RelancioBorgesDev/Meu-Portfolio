@@ -1,5 +1,7 @@
 ---
+import FeaturedBlogPost from "../components/FeaturedBlogPost.astro"
 import SectionHeader from "../components/SectionHeader"
+import Tag from "../components/Tag"
 import HomeLayout from "../layouts/HomeLayout.astro"
 ---
 
@@ -8,7 +10,11 @@ import HomeLayout from "../layouts/HomeLayout.astro"
 	<main class="w-full h-full flex flex-col px-4" transition:animate="slide">
 		<section>
 			<SectionHeader hasAll title="Blog" transition:name="sec-header"/>
+			<section class="py-3 flex flex-col gap-8">
+				<FeaturedBlogPost title="The Brain Science Behind Aging and Forgetting" description="Are younger people smarter? Are older people wiser? Living longer affects the brain, but exactly how may surprise you"/>
 
+				<FeaturedBlogPost title="Would Albert Einstein End Up in Academia in 2024?" description="Imagine that you are a young Albert Einstein in Gen Z, born 120 years after the legendary scientist, with a new concept for "/>
+			</section>
 		</section>
 	</main>
 </HomeLayout>

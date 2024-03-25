@@ -1,4 +1,6 @@
 ---
+import Tag from './Tag'
+
 type Props = {
     img?: string
     title: string
@@ -18,17 +20,9 @@ const {title, description} = Astro.props
             <p class="text-description text-gray-500">{description}</p>
         </div>
         <div class="flex items-center gap-4">
-            <div class="bg-tag p-2 rounded-lg">
-                Javascript
-            </div>
-
-            <div class="bg-tag p-2 rounded-lg">
-                Typescript
-            </div>
-
-            <div class="bg-tag p-2 rounded-lg">
-                Java
-            </div>
+            <Tag tag='Javascript'/>
+            <Tag tag='Typescript'/>
+            <Tag tag='Java'/>
         </div>
     </div>
 </div>
