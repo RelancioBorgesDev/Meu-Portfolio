@@ -1,0 +1,23 @@
+---
+import AllHeader from "../components/AllHeader.astro";
+import Head from "./Head.astro";
+
+type Props = {
+	title: string
+    header_title: string;
+    header_description: string
+}
+
+const { title, header_description, header_title } = Astro.props
+
+---
+
+<html lang="pt-BR">
+	<Head title={title}/>
+	<body class="bg-home h-[100vh-96px] text-main font-inter relative">
+		<section>
+            <AllHeader title={header_title} description={header_description}/>
+            <slot/>
+        </section>
+	</body>
+</html>

@@ -17,7 +17,7 @@ export default function SectionHeader({
         <span className="text-2xl font-bold">{title}</span>
       </div>
       {hasAll && (
-        <a href={"#"}>
+        <a href={link}>
           <Button label="Ver Todos" />
         </a>
       )}

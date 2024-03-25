@@ -1,0 +1,29 @@
+---
+import { ArrowBendDownLeft } from "phosphor-react";
+import Tag from "./Tag";
+
+type Props = {
+    title: string;
+    description: string;
+}
+
+const {title, description} = Astro.props
+
+---
+
+<header class="bg-all-header flex flex-col items-center justify-center w-full font-rubik gap-4 py-6 px-4 relative shadow-2xl">
+    <h1 class="text-title font-bold drop-shadow-xl">{title}</h1>
+    <p>{description}</p>
+    <div class="flex items-center gap-2">
+        <Tag tag="Javascript"/>
+        <Tag tag="Javascript"/>
+        <Tag tag="Javascript"/>
+        <Tag tag="Javascript"/>
+    </div>
+    <a href="javascript:history.back()" class="absolute top-4 left-4" >
+        <button class="flex items-center gap-2 bg-tag-2 px-4 py-2 rounded-lg hover:brightness-75">
+            <ArrowBendDownLeft size={22} />
+            Voltar
+        </button>
+    </a>
+</header>
