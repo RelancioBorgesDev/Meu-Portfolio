@@ -19,21 +19,23 @@ const numberOfWords = countWords(body)
 const readingTime = getReadingTime(numberOfWords, 130);
 ---
 
-<div class="w-[700px] max-md:w-full  rounded-lg flex  gap-2  hover:scale-110 duration-300 ease-in-out transition-all cursor-pointer">
-    <div class="w-full flex flex-col justify-between py-4">
-        <header class="px-4">
+<div class="w-[700px] max-md:w-full rounded-lg flex gap-2 hover:bg-tag duration-300 ease-in-out transition-all cursor-pointer max-sm:flex-col-reverse max-sm:gap-4">
+    <div class="w-full flex flex-col justify-between max-sm:gap-4 max-sm:py-1 py-4">
+        <header class="px-4 max-sm:px-2">
             <h1 class="text-sm-title font-bold drop-shadow-2xl">{title}</h1>
             <p class="text-description">{description}</p>
         </header>
-        <footer class="w-full flex items-center justify-between px-4">
-            <div class="flex items-center gap-2">
+        <footer class="w-full flex items-center justify-between px-4 max-sm:px-2">
+            <div class="flex items-center gap-2 ">
                 <Tag tag={readingTime.toFixed(0).toString()+" min leitura"}/>
                 <LuDot className="text-tag-3"/>
                 <Tag tag={format.toString()}/>
-                <LuDot className="text-tag-3"/>
+                <LuDot className="text-tag-3 max-md:hidden"/>
+               <span class="flex gap-2 items-center max-md:hidden">
                 {tags.map((tag) => (
                     <Tag tag={tag}/>
                 ))}
+               </span>
             </div>
         </footer>
     </div>
