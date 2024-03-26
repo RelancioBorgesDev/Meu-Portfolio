@@ -8,6 +8,7 @@ export const postSchema = z.object({
   date: z.date(),
   card_image: z.string(),
   banner_image: z.string(),
+  featured: z.boolean(),
 });
 
 export const projectSchema = z.object({
@@ -18,7 +19,7 @@ export const projectSchema = z.object({
   tags: z.array(z.string()),
   date: z.date(),
   card_image: z.string(),
+  featured: z.boolean(),
 });
 
-
-export const projectType =  typeof(projectSchema)
+export const projectType = typeof projectSchema;
