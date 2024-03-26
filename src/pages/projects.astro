@@ -1,12 +1,27 @@
 ---
+import { ArrowBendDownLeft } from "phosphor-react";
+import {getCollection} from "astro:content"
 import ProjectCard from "../components/ProjectCard.astro";
 import AllLayout from "../layouts/AllLayout.astro";
-import {getCollection} from "astro:content"
+import Tag from "../components/Tag";
+import GoBackButton from "../components/GoBackButton.astro";
 const projects = await getCollection("project")
 
 ---
 
-<AllLayout title="Meus Projetos" header_title="Meus Projetos" header_description="Discover stories, thinking, and expertise from writers on any topic." transition:animate={"fade"}>
+<AllLayout title="Meus Projetos" transition:animate={"fade"}>
+    <header class="bg-all-header flex flex-col items-center justify-center w-full font-rubik gap-4 py-6 px-4 relative shadow-2xl">
+        <h1 class="text-title font-bold drop-shadow-xl">Meus Projetos</h1>
+        <p>Discover stories, thinking, and expertise from writers on any topic.</p>
+        <div class="flex items-center gap-2">
+            <Tag tag="Javascript"/>
+            <Tag tag="Javascript"/>
+            <Tag tag="Javascript"/>
+            <Tag tag="Javascript"/>
+        </div>
+        <GoBackButton/>
+    </header>
+    
     <section class="grid grid-cols-3 items-center justify-center w-full px-8 py-12">
         {projects.map(({data}) => (
             <ProjectCard title={data.title} description={data.description} projectType={data.projectType} date={data.date} tags={data.tags} card_img={data.card_image}/>
