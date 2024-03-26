@@ -1,11 +1,12 @@
 ---
-title: "Projeto Titulo"
+title: "Javascript V6"
 description: "Essa é a descrição de teste para ver como fica na estrutura do projeto."
-author: "Relancio Borges",
+author: "Relancio Borges"
 tags: ["Javascript", "Tailwind"]
 date: 2024-03-15
 card_image: "/card.jpg"
 banner_image: "/banner.jpg"
+featured: true
 ---
 
 JavaScript is a versatile and powerful programming language that is widely used for creating interactive websites and web applications. In this article, we'll explore the fundamentals of how JavaScript works under the hood.

@@ -6,6 +6,7 @@ video: ""
 tags: ["Javascript", "Tailwind"]
 date: 2024-03-26
 card_image: "/card.jpg"
+featured: true
 ---
 
 

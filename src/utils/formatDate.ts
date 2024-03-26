@@ -5,10 +5,27 @@ type typeOfAnswerTypes = {
     | "year"
     | "dayAndMonth"
     | "dayAndYear"
-    | "monthAndYear";
+    | "monthAndYear"
+    | "dayMonthAndYear";
 };
-
-export const formattedDate = (date: Date, { typeOfAnswer }: typeOfAnswerTypes) => {
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+export const formattedDate = (
+  date: Date,
+  { typeOfAnswer }: typeOfAnswerTypes
+) => {
   switch (typeOfAnswer) {
     case "day": {
       return date.getDate();
@@ -27,6 +44,11 @@ export const formattedDate = (date: Date, { typeOfAnswer }: typeOfAnswerTypes) =
     }
     case "monthAndYear": {
       return `${date.getMonth() + 1}/${date.getFullYear()}`;
+    }
+    case "dayMonthAndYear": {
+      return `${date.getDate()} de ${
+        months[date.getMonth()]
+      }, ${date.getFullYear()}`;
     }
     default: {
       throw new Error(`Unsupported typeOfAnswer: ${typeOfAnswer}`);

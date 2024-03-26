@@ -1,24 +1,46 @@
 ---
+import { LuDot } from "react-icons/lu";
+import { formattedDate } from "../utils/formatDate";
+import { countWords, getReadingTime } from "../utils/readingTime";
 import Tag from "./Tag";
 
+type Props = {
+    title: string
+    description: string;
+    tags: Array<string>
+    date: Date
+    card_image: string
+    body: string    
+}
 
+const {title,description,tags,card_image,date, body} = Astro.props
+const format = formattedDate(date, {typeOfAnswer: "dayMonthAndYear"})
+const numberOfWords = countWords(body)
+const readingTime = getReadingTime(numberOfWords, 130);
 ---
 
-<div class="w-[361px] h-[369px] bg-all-header rounded-lg flex flex-col gap-2 shadow-xl hover:scale-110 duration-300 ease-in-out transition-all cursor-pointer">
-    <header>
-        <div class="w-[361px] h-[190px] bg-slate-950 rounded-t-lg bg-clip shadow-xl"></div>
-    </header>
-    <div class="px-4">
-        <h1 class="text-sm-title font-bold drop-shadow-2xl">Project Title</h1>
-        <p class="text-description">Are younger people smarter? Are older people wiser? Living longer affects the brain, but exactly how may surprise you</p>
+<div class="w-[700px] max-md:w-full  rounded-lg flex  gap-2  hover:scale-110 duration-300 ease-in-out transition-all cursor-pointer">
+    <div class="w-full flex flex-col justify-between py-4">
+        <header class="px-4">
+            <h1 class="text-sm-title font-bold drop-shadow-2xl">{title}</h1>
+            <p class="text-description">{description}</p>
+        </header>
+        <footer class="w-full flex items-center justify-between px-4">
+            <div class="flex items-center gap-2">
+                <Tag tag={readingTime.toFixed(0).toString()+" min leitura"}/>
+                <LuDot className="text-tag-3"/>
+                <Tag tag={format.toString()}/>
+                <LuDot className="text-tag-3"/>
+                {tags.map((tag) => (
+                    <Tag tag={tag}/>
+                ))}
+            </div>
+        </footer>
     </div>
-    <footer class="flex items-center justify-between px-4">
-        <div class="flex items-center gap-2">
-            <Tag tag="Tailwind"/>
-            <Tag tag="Typescript"/>
-        </div>
-        <div class="rounded-full border-2 border-light-border px-4 py-2 bg-tag-3 font-bold text-sm">2024</div>
-    </footer>
+    
+    <figure>
+        <img src={card_image} alt="card image" class="w-full h-[190px] bg-slate-950   shadow-xl"/>
+    </figure>
 </div>
 
 <style>

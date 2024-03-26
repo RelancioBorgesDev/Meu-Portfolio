@@ -1,13 +1,18 @@
 ---
 import BlogPostCard from "../components/BlogPostCard.astro";
 import AllLayout from "../layouts/AllLayout.astro";
+import {getCollection} from "astro:content"
+const posts = await getCollection("post")
 
 
 ---
 
 <AllLayout title="Meus Posts" header_title="Meus Posts" header_description="Discover stories, thinking, and expertise from writers on any topic." transition:animate={"fade"}>
 
-    <section class="grid grid-cols-3 items-center justify-center w-full px-8 py-12">
-        <BlogPostCard/>
+    <section class="flex flex-col gap-12 items-center justify-center w-full px-12 py-12">
+        {posts.map((post) => (
+            <BlogPostCard title={post.data.title} description={post.data.description} tags={post.data.tags} date={post.data.date} card_image={post.data.card_image} body={post.body} />
+        ))}
+        
     </section>
 </AllLayout>
