@@ -1,13 +1,16 @@
 ---
 import ProjectCard from "../components/ProjectCard.astro";
 import AllLayout from "../layouts/AllLayout.astro";
-
+import {getCollection} from "astro:content"
+const projects = await getCollection("project")
 
 ---
 
 <AllLayout title="Meus Projetos" header_title="Meus Projetos" header_description="Discover stories, thinking, and expertise from writers on any topic." transition:animate={"fade"}>
     <section class="grid grid-cols-3 items-center justify-center w-full px-8 py-12">
-        <ProjectCard/>
+        {projects.map(({data}) => (
+            <ProjectCard title={data.title} description={data.description} projectType={data.projectType} date={data.date} tags={data.tags} card_img={data.card_image}/>
+        ))}
     </section>
 
 </AllLayout>
