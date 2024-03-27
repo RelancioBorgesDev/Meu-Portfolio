@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { formattedDate } from "../utils/formatDate";
 import Tag from "./Tag";
 
@@ -6,12 +7,17 @@ type Props = {
     title: string
     description: string
     projectType: string
-    card_img: string
+    card_image: {
+        src: string;
+        width: number;
+        height: number;
+        format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+    };
     tags: Array<string>
     date: Date
 }
 
-const {title, description, card_img, tags, projectType, date} = Astro.props
+const {title, description, card_image, tags, projectType, date} = Astro.props
 
 const formatted = formattedDate(date, { typeOfAnswer: "year" });
 ---
@@ -32,8 +38,8 @@ const formatted = formattedDate(date, { typeOfAnswer: "year" });
         </div>
     </div>
     <footer>
-        {card_img && (
-            <img src={card_img} alt="card image" class="w-[361px] h-[190px] bg-slate-950 rounded-b-lg"/>
+        {card_image && (
+            <Image src={card_image} alt="card image" class="w-[361px] h-[190px] bg-slate-950 rounded-b-lg"/>
         )}
     </footer>
 </div>

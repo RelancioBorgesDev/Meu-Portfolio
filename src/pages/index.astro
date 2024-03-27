@@ -1,8 +1,10 @@
 ---
+import { getCollection } from "astro:content"
 import FeaturedProject from "../components/FeaturedProject.astro"
 import SectionHeader from "../components/SectionHeader"
 import Separator from "../components/Separator.astro"
 import HomeLayout from "../layouts/HomeLayout.astro"
+const projects = await getCollection("project")
 ---
 
 <HomeLayout title="Inicio | Projetos">
@@ -11,11 +13,12 @@ import HomeLayout from "../layouts/HomeLayout.astro"
 		<SectionHeader hasAll title="Projetos" transition:name="sec-header" link="/projects"/>
 
 		<section class="py-3 flex flex-col gap-8">
-			<FeaturedProject title="Valorant" description="Testing API Calls in useEffect using React Testing Library and Jest"/>
-			<Separator/>
-			<FeaturedProject title="Valorant" description="Testing API Calls in useEffect using React Testing Library and Jest"/>
-			<Separator/>
-			<FeaturedProject title="Valorant" description="Testing API Calls in useEffect using React Testing Library and Jest"/>
+			{projects.map((project) => (
+				project.data.featured && <a href={`/project/${project.slug}`}>
+					<FeaturedProject title={project.data.title} description={project.data.description} tags={project.data.tags} img={project.data.card_image}/>
+				</a>
+				<Separator/>
+			))}
 		</section>
 
 	</main>

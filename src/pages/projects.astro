@@ -23,8 +23,10 @@ const projects = await getCollection("project")
     </header>
     
     <section class="grid grid-cols-3 items-center justify-center w-full px-8 py-12">
-        {projects.map(({data}) => (
-            <ProjectCard title={data.title} description={data.description} projectType={data.projectType} date={data.date} tags={data.tags} card_img={data.card_image}/>
+        {projects.map((project) => (
+            <a href={`/project/${project.slug}`}>
+                <ProjectCard title={project.data.title} description={project.data.description} projectType={project.data.projectType} date={project.data.date} tags={project.data.tags} card_image={project.data.card_image}/>
+            </a>
         ))}
     </section>
 

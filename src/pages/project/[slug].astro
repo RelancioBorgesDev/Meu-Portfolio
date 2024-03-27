@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import AllLayout from "../../layouts/AllLayout.astro";
+import type { CollectionEntry } from "astro:content";
+import GoBackButton from "../../components/GoBackButton.astro";
+import Tag from "../../components/Tag";
+
+export const getStaticPaths = async () => {
+    const projects = await getCollection("project")
+    const paths = projects.map((project) => {
+        return {
+            params: {
+                slug: project.slug
+            },
+            props: {
+                project            
+            }
+        }
+    })
+    return paths
+}
+type Props = {
+    project: CollectionEntry<"project">
+}
+
+const {project} = Astro.props
+const {Content} = await project.render()
+
+---
+
+<AllLayout title={`Projeto | ${project.slug}`}>
+    <header class="w-full flex flex-col items-center justify-between px-8 py-20 relative gap-8">
+        
+        <h1 class="text-7xl font-extrabold text-center">{project.data.title}</h1>
+        <div class="w-full flex flex-col items-center gap-4">
+      
+        <div class="flex items-center gap-4">
+            {project.data.tags.map((tag) => (
+                <Tag tag={tag}/>
+            ))}
+        </div>
+        <span class="text-xl font-bold absolute top-2 right-2">{project.data.projectType}</span>
+       </div>
+        <GoBackButton/>
+    </header>
+    <section class="w-full flex justify-center items-center px-2">
+        <video class="w-[800px] rounded-sm" autoplay loop>
+            <source src={`${project.data.video}`} type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    
+
+    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 flex flex-col justify-center text-white mx-auto mt-16 px-2">
+        <Content/>
+    </article>
+</AllLayout>
