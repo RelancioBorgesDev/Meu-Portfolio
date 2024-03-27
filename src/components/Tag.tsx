@@ -5,5 +5,9 @@ interface TagProps {
 }
 
 export default function Tag({ tag }: TagProps) {
-  return <div className="bg-tag p-2 rounded-lg text-sm font-bold">{tag}</div>;
+  return (
+    <div className="bg-tag p-2 rounded-lg text-sm font-bold text-center">
+      {tag}
+    </div>
+  );
 }
