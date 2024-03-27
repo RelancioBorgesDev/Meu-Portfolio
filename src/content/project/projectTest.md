@@ -5,15 +5,13 @@ projectType: "Front End"
 video: ""
 tags: ["Javascript", "Tailwind"]
 date: 2024-03-26
-card_image: "/card.jpg"
+card_image: "./images/card.jpg"
 featured: true
 ---
-
 
 JavaScript is a versatile and powerful programming language that is widely used for creating interactive websites and web applications. In this article, we'll explore the fundamentals of how JavaScript works under the hood.
 
 ## Introduction to JavaScript
-
 
 # Understanding How JavaScript Works
 
