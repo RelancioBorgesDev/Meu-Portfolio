@@ -2,10 +2,10 @@
 title: "Projeto Titulo"
 description: "Essa é a descrição de teste para ver como fica na estrutura do projeto."
 projectType: "Front End"
-video: ""
 tags: ["Javascript", "Tailwind"]
 date: 2024-03-26
 card_image: "./images/card.jpg"
+video: "/videos/Calendario Peek.mp4"
 featured: true
 ---
 
