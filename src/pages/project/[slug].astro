@@ -31,7 +31,7 @@ const {Content} = await project.render()
 <AllLayout title={`Projeto | ${project.slug}`}>
     <header class="w-full flex flex-col items-center justify-between px-8 py-20 relative gap-8">
         
-        <h1 class="text-7xl font-extrabold text-center">{project.data.title}</h1>
+        <h1 class="text-7xl max-md:text-5xl font-extrabold text-center">{project.data.title}</h1>
         <div class="w-full flex flex-col items-center gap-4">
       
         <div class="flex items-center gap-4">
@@ -43,15 +43,15 @@ const {Content} = await project.render()
        </div>
         <GoBackButton/>
     </header>
-    <section class="w-full flex justify-center items-center px-2">
-        <video class="w-[800px] rounded-sm" autoplay loop>
+    <section class="w-full flex justify-center items-center px-4">
+        <video class="w-[1000px] rounded-sm" autoplay loop>
             <source src={`${project.data.video}`} type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </section>
     
 
-    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 flex flex-col justify-center text-white mx-auto mt-16 px-2">
+    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 flex flex-col justify-center text-white mx-auto mt-16 px-4">
         <Content/>
     </article>
 </AllLayout>
