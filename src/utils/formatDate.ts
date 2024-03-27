@@ -43,10 +43,10 @@ export const formattedDate = (
       return `${date.getDate()}/${date.getFullYear()}`;
     }
     case "monthAndYear": {
-      return `${date.getMonth() + 1}/${date.getFullYear()}`;
+      return `${months[date.getMonth()]}, ${date.getFullYear()}`;
     }
     case "dayMonthAndYear": {
-      return `${date.getDate()} de ${
+      return `${date.getDate() + 1} de ${
         months[date.getMonth()]
       }, ${date.getFullYear()}`;
     }
