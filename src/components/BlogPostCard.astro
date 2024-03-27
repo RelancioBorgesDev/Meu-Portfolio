@@ -3,13 +3,19 @@ import { LuDot } from "react-icons/lu";
 import { formattedDate } from "../utils/formatDate";
 import { countWords, getReadingTime } from "../utils/readingTime";
 import Tag from "./Tag";
+import { Image } from "astro:assets";
 
 type Props = {
     title: string
     description: string;
     tags: Array<string>
     date: Date
-    card_image: string
+    card_image: {
+        src: string;
+        width: number;
+        height: number;
+        format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+    };
     body: string    
 }
 
@@ -41,12 +47,6 @@ const readingTime = getReadingTime(numberOfWords, 130);
     </div>
     
     <figure>
-        <img src={card_image} alt="card image" class="w-full h-[190px] bg-slate-950   shadow-xl"/>
+        <Image src={card_image} alt="card image" class="w-full h-[190px] bg-slate-950   shadow-xl"/>
     </figure>
 </div>
-
-<style>
-    .bg-clip{
-        clip-path: polygon(0 0, 100% 0%, 100% 93%, 49% 87%, 0 93%);
-    }
-</style>

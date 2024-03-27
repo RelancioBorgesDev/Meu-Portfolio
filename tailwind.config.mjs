@@ -10,7 +10,7 @@ export default {
         "tag-2": "#272424",
         "tag-3": "#4F4B4B",
         main: "#FFFF",
-        "light-border": "#7A7575"
+        "light-border": "#7A7575",
       },
       fontSize: {
         title: "4rem",
@@ -26,5 +26,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

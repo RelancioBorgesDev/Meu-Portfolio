@@ -1,9 +1,13 @@
 ---
+import { getCollection } from "astro:content"
 import FeaturedBlogPost from "../components/FeaturedBlogPost.astro"
 import SectionHeader from "../components/SectionHeader"
 import Separator from "../components/Separator.astro"
 import Tag from "../components/Tag"
 import HomeLayout from "../layouts/HomeLayout.astro"
+
+const posts = await getCollection("post")
+
 ---
 
 <HomeLayout title="Inicio | Blog">
@@ -12,9 +16,13 @@ import HomeLayout from "../layouts/HomeLayout.astro"
 		<section>
 			<SectionHeader hasAll title="Blog" transition:name="sec-header" link="/posts"/>
 			<section class="py-3 flex flex-col gap-8">
-				<FeaturedBlogPost title="The Brain Science Behind Aging and Forgetting" description="Are younger people smarter? Are older people wiser? Living longer affects the brain, but exactly how may surprise you"/>
-				<Separator/>
-				<FeaturedBlogPost title="Would Albert Einstein End Up in Academia in 2024?" description="Imagine that you are a young Albert Einstein in Gen Z, born 120 years after the legendary scientist, with a new concept for "/>
+				{posts.map((post) => (
+					post.data.featured &&
+					<a href={`/post/${post.slug}`}>
+						<FeaturedBlogPost title={post.data.title} description={post.data.description} tags={post.data.tags} img={post.data.card_image} body={post.body} date={post.data.date}/>
+					<Separator/>
+					</a>
+				))}
 			</section>
 		</section>
 	</main>

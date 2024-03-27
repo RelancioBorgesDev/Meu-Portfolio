@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import AllLayout from '../../layouts/AllLayout.astro'
+import GoBackButton from '../../components/GoBackButton.astro'
+import { countWords, getReadingTime } from '../../utils/readingTime'
+import { LuDot } from 'react-icons/lu'
+import { formattedDate } from '../../utils/formatDate'
+import { Image } from 'astro:assets'
+
+export const getStaticPaths = async () => {
+    const blogPosts = await getCollection("post")
+    const paths = blogPosts.map((blogPost) => {
+        return {
+            params: {
+                slug: blogPost.slug
+            },
+            props: {
+                blogPost
+            }
+        }
+    })
+    return paths
+}
+
+type Props = {
+    blogPost: CollectionEntry<"post">
+}
+
+const {blogPost} = Astro.props
+const {Content} = await blogPost.render()
+
+
+const numberOfWords = countWords(blogPost.body)
+const readingTime = getReadingTime(numberOfWords, 130);
+const format = formattedDate(blogPost.data.date, {typeOfAnswer: "dayMonthAndYear"})
+---
+
+<AllLayout title={`Post | ${blogPost.slug}`} >
+    <header class="relative flex flex-col gap-4">
+        <div class="relative flex flex-col items-center justify-center h-[600px]">
+            <Image src={blogPost.data.banner_image} width={1024}
+            height={1024/2} alt="Banner Img" class="w-full h-full opacity-40 absolute" format="webp"/>
+           <div class="flex flex-col items-center z-50 gap-2 text-center">
+                <h1 class="text-9xl font-extrabold drop-shadow-2xl max-lg:text-6xl">{blogPost.data.title}</h1>
+                <p class="text-xl">{blogPost.data.description}</p>
+           </div>
+        </div>
+        <GoBackButton/>
+    </header>
+
+    <section class="flex items-center gap-2 px-4 py-2">
+        <div class="w-12 h-12 bg-gray-800 rounded-full "/>
+        <h1 class="text-sm">{blogPost.data.author}</h1>
+        <LuDot className='text-gray-200/95'/>
+        <span class="text-sm">{readingTime.toFixed(0).toString() + " min de leitura"}</span>
+        <LuDot className='text-gray-200/95'/>
+        <span class="text-sm">{format}</span>
+    </section>
+
+    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 flex flex-col justify-center text-white mx-auto mt-8">
+        <Content/>
+    </article>
+</AllLayout>

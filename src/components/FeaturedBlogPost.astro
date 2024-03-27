@@ -1,13 +1,28 @@
 ---
+import { Image } from "astro:assets";
 import Tag from "./Tag";
-import { LuDot } from "react-icons/lu";type Props = {
+import { LuDot } from "react-icons/lu";import { formattedDate } from "../utils/formatDate";
+import { countWords, getReadingTime } from "../utils/readingTime";
+type Props = {
     title: string
     description: string
-    tags?: Array<string> 
-
+    tags: Array<string> 
+    img: {
+        src: string;
+        width: number;
+        height: number;
+        format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+    };
+    date: Date
+    body: string
 }
 
-const {title, description, tags} = Astro.props
+const {title, description, tags, img, date, body} = Astro.props
+
+const numberOfWords = countWords(body)
+const readingTime = getReadingTime(numberOfWords, 130);
+const format = formattedDate(date, {typeOfAnswer: "monthAndYear"})
+
 ---
 
 
@@ -18,13 +33,17 @@ const {title, description, tags} = Astro.props
             <p class="text-gray-500/95 text-description">{description}</p>
         </header>
         <footer class="flex items-center gap-.5">
-            <Tag tag="Março, 2024"/>
+            <Tag tag={format.toString()}/>
             <LuDot size={22} className="text-gray-500/95"/>
-            <Tag tag="5 min read"/>
+            <Tag tag={readingTime.toFixed(0).toString() + " min de leitura"}/>
             <LuDot size={22} className="text-gray-500/95"/>
-            <Tag tag="IA"/>
+            <div class="flex gap-2 items-center">
+            {tags.map((tag) => (
+                    <Tag tag={tag}/>
+            ))}
+             </div>
         </footer>
     </div>
-    <div class="w-[239px] max-md:w-full h-[135px] bg-gray-950 rounded-lg"></div>
+    <Image src={img} alt={"Featured Project Image"} class="w-[239px] max-md:w-full h-[135px] bg-gray-950 rounded-lg"/>
     
 </div>
