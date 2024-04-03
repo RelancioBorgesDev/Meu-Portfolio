@@ -4,6 +4,7 @@ import AllLayout from "../../layouts/AllLayout.astro";
 import type { CollectionEntry } from "astro:content";
 import GoBackButton from "../../components/GoBackButton.astro";
 import Tag from "../../components/Tag";
+import { BsGithub } from "react-icons/bs";
 
 export const getStaticPaths = async () => {
     const projects = await getCollection("project")
@@ -29,8 +30,7 @@ const {Content} = await project.render()
 ---
 
 <AllLayout title={`Projeto | ${project.slug}`}>
-    <header class="w-full flex flex-col items-center justify-between px-8 py-20 relative gap-8">
-        
+    <header class="w-full flex flex-col items-center justify-between px-8 pt-20 pb-4 relative gap-8">
         <h1 class="text-7xl max-md:text-5xl font-extrabold text-center">{project.data.title}</h1>
         <div class="w-full flex flex-col items-center gap-4">
       
@@ -40,6 +40,9 @@ const {Content} = await project.render()
             ))}
         </div>
         <span class="text-xl font-bold absolute top-2 right-2">{project.data.projectType}</span>
+        <a href="">
+            <BsGithub className="text-white" size={32}/>
+        </a>
        </div>
         <GoBackButton/>
     </header>
