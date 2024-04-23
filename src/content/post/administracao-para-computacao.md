@@ -15,7 +15,7 @@ featured: true
 
 A teoria clássica da administração foi inicialmente proposta pelo engenheiro de minas francês Jules Henri Fayol. Em sua visão, a administração tinha como principal objetivo alcançar a máxima eficiência, concentrando-se principalmente em questões econômicas.
 
-Pode-se considerar que a teoria clássica serve de base para os estudos de administração, nos quais se investigam as funções do gestor e dos líderes dentro de uma empresa. Para facilitar o estudo, são utilizados os 14 princípios gerais da Administração propostos por Henry Fayol:
+Pode-se considerar que a teoria clássica serve de base para os estudos de administração, nos quais se investigam as funções do gestor e dos líderes dentro de uma empresa. Para facilitar o estudo, são utilizados os 14 princípios gerais da Administração propostos por Henri Fayol:
 
 - **Princípios Gerais**:
   - Divisão do trabalho
@@ -54,7 +54,7 @@ Com base nessas funções básicas, ele também delineou os processos administra
 
 ## Como essa visão clássica da administração é vista no campo da Computação
 
-A visão de Henry Fayol pode ser correlacionada com o campo da computação de diversas maneiras, especialmente no contexto de gestão de projetos de tecnologia e administração de equipes de desenvolvimento. Desenvolver um projeto em equipe exige seguir uma série de passos para alcançar o sucesso. Entre esses passos, destacam-se os seguintes pontos-chave:
+A visão de Henri Fayol pode ser correlacionada com o campo da computação de diversas maneiras, especialmente no contexto de gestão de projetos de tecnologia e administração de equipes de desenvolvimento. Desenvolver um projeto em equipe exige seguir uma série de passos para alcançar o sucesso. Entre esses passos, destacam-se os seguintes pontos-chave:
 
 - Divisão do trabalho e definição de responsabilidades: É essencial definir claramente as atribuições de cada membro da equipe dentro do contexto do projeto. Isso inclui estabelecer quem tem autoridade sobre quais aspectos do projeto e quem é responsável por quais tarefas.
 

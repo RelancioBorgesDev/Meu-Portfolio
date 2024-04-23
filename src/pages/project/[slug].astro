@@ -47,14 +47,11 @@ const {Content} = await project.render()
         <GoBackButton/>
     </header>
     <section class="w-full flex justify-center items-center px-4">
-        <video class="w-[1000px] rounded-sm" autoplay loop>
-            <source src={`${project.data.video}`} type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <img src={project.data.video} alt="Gif" class="w-[1000px]"/>
     </section>
     
 
-    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 flex flex-col justify-center text-white mx-auto mt-16 px-4">
+    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 prose-st: flex flex-col justify-center text-white mx-auto mt-16 px-4">
         <Content/>
     </article>
 </AllLayout>
