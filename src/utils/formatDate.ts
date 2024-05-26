@@ -10,17 +10,17 @@ type typeOfAnswerTypes = {
 };
 const months = [
   "Jan",
-  "Feb",
+  "Fev",
   "Mar",
-  "Apr",
-  "May",
+  "Abr",
+  "Mai",
   "Jun",
   "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
+  "Ago",
+  "Set",
+  "Out",
   "Nov",
-  "Dec",
+  "Dez",
 ];
 export const formattedDate = (
   date: Date,
