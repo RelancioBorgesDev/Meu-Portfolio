@@ -4,7 +4,7 @@ interface ButtonProps {
 
 export default function Button({ label }: ButtonProps) {
   return (
-    <button className="bg-tag px-4 py-3 rounded-lg hover:brightness-90">
+    <button className="bg-zinc-800 px-4 py-3 rounded-xl hover:brightness-90">
       {label}
     </button>
   );

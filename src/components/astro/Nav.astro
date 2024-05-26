@@ -1,0 +1,25 @@
+---
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import NavLinks from "../react/NavLinks"
+---
+
+<nav class="w-1/2 max-lg:w-full lg:sticky lg:top-4 flex flex-col lg:max-h-screen lg:flex-col lg:gap-8 lg:pb-24 max-md:px-4 gap-4">
+    <header class="flex flex-col gap-2">
+        <h1 class="text-3xl text-white max-sm:text-4xl font-bold">Relancio Borges</h1>
+        <p class="text-description italic text-slate-300/70 font-bold">Desenvolvedor especialista em transformar ideias em projetos.</p>
+    </header>
+
+    <NavLinks client:load/>
+   
+    <footer class="flex items-center gap-4  ">
+        <a href="https://github.com/RelancioBorgesDev" target="_blank" rel="noopener noreferrer">
+            <FaGithub size={28} className="text-white"/>
+        </a>
+        
+        <a href="https://www.linkedin.com/in/relancio-borges-4716a620b/" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={28} className="text-blue-600"/>
+        </a>
+    </footer>
+
+</nav>
+

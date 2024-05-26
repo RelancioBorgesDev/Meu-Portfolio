@@ -1,8 +1,8 @@
 ---
 import { LuDot } from "react-icons/lu";
-import { formattedDate } from "../utils/formatDate";
-import { countWords, getReadingTime } from "../utils/readingTime";
-import Tag from "./Tag";
+import { formattedDate } from "../../utils/formatDate";
+import { countWords, getReadingTime } from "../../utils/readingTime";
+import Tag from "../react/Tag";
 import { Image } from "astro:assets";
 
 type Props = {
@@ -25,13 +25,13 @@ const numberOfWords = countWords(body)
 const readingTime = getReadingTime(numberOfWords, 130);
 ---
 
-<div class="w-[700px] max-md:w-full rounded-lg flex gap-2 hover:bg-tag duration-300 ease-in-out transition-all cursor-pointer max-sm:flex-col-reverse max-sm:gap-4">
-    <div class="w-full flex flex-col justify-between max-sm:gap-4 max-sm:py-1 py-4">
+<div class="w-full max-md:w-full rounded-xl flex hover:bg-tag duration-300 ease-in-out transition-all cursor-pointer max-sm:flex-col-reverse max-sm:gap-4 group">
+    <div class="w-full flex flex-col rounded-l-xl  group-hover:bg-zinc-800 transition-all ease-in-out duration-300 gap-8 max-sm:gap-4 max-sm:py-1 py-4">
         <header class="px-4 max-sm:px-2">
-            <h1 class="text-sm-title font-bold drop-shadow-2xl">{title}</h1>
-            <p class="text-description">{description}</p>
+            <h1 class="text-xl font-bold drop-shadow-2xl">{title}</h1>
+            <p class="text-sm">{description}</p>
         </header>
-        <footer class="w-full flex items-center justify-between px-4 max-sm:px-2">
+        <footer class="w-full flex items-center px-4 max-sm:px-2">
             <div class="flex items-center gap-2 ">
                 <Tag tag={readingTime.toFixed(0).toString()+" min leitura"}/>
                 <LuDot className="text-tag-3"/>
@@ -47,6 +47,6 @@ const readingTime = getReadingTime(numberOfWords, 130);
     </div>
     
     <figure>
-        <Image src={card_image} alt="card image" class="w-full h-[190px] bg-slate-950   shadow-xl"/>
+        <Image src={card_image} alt="card image" class="shadow-xl rounded-r-xl max-sm:w-full" width={300} height={300}/>
     </figure>
 </div>

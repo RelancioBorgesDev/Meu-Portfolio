@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content"
+import SectionHeader from "../react/SectionHeader"
+import FeaturedBlogPost from "./FeaturedBlogPost.astro"
+import Separator from "./Separator.astro"
+const posts = await getCollection("post")
+---
+
+<main id="blog" class="w-full h-full flex flex-col px-4" transition:animate="slide">
+    <section>
+        <SectionHeader hasAll title="Blog" transition:name="sec-header" link="/posts"/>
+        <section class="py-3 flex flex-col gap-8">
+            {posts.map((post) => (
+                post.data.featured &&
+                <a href={`/post/${post.slug}`}>
+                    <FeaturedBlogPost title={post.data.title} description={post.data.description} tags={post.data.tags} img={post.data.card_image} body={post.body} date={post.data.date}/>
+                
+                </a>
+            ))}
+        </section>
+    </section>
+</main>

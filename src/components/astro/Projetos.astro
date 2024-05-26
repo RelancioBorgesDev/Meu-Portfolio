@@ -1,0 +1,18 @@
+---
+
+import { getCollection } from "astro:content"
+const projects = await getCollection("project")
+import SectionHeader from "../react/SectionHeader";
+import FeaturedProject from "./FeaturedProject.astro";
+
+
+---
+<section id="projetos" class="flex flex-col gap-4">
+    <SectionHeader hasAll title="Projetos" transition:name="sec-header" link="/projects"/>
+    {projects.map((project) => (
+        project.data.featured && <a href={`/project/${project.slug}`}>
+            <FeaturedProject title={project.data.title} description={project.data.description} tags={project.data.tags} img={project.data.card_image}/>
+        </a>
+    
+    ))}
+</section>

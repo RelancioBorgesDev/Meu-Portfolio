@@ -12,9 +12,9 @@ export default function SectionHeader({
   link,
 }: SectionHeaderProps) {
   return (
-    <header className="border-b-2 py-2 border-slate-700/40 flex items-center justify-between">
+    <header className="border-b-2 border-slate-700/40 flex pb-2 items-center justify-between">
       <div className="flex items-center gap-2">
-        <span className="text-2xl font-bold">{title}</span>
+        <span className="text-4xl font-bold">{title}</span>
       </div>
       {hasAll && (
         <a href={link}>

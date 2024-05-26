@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { formattedDate } from "../utils/formatDate";
-import Tag from "./Tag";
+import { formattedDate } from "../../utils/formatDate";
+import Tag from "../react/Tag";
 import { ArrowBendDownLeft } from "phosphor-react";
 
 type Props = {
@@ -23,15 +23,15 @@ const {title, description, card_image, tags, projectType, date} = Astro.props
 const formatted = formattedDate(date, { typeOfAnswer: "year" });
 ---
 
-<div class="w-[400px] max-sm:w-full h-full bg-all-header rounded-lg flex flex-col gap-2 shadow-xl hover:scale-110 duration-300 ease-in-out transition-all cursor-pointer max-sm:hover:scale-100">
+<div class="w-[400px] max-sm:w-full h-full bg-zinc-800 rounded-xl flex flex-col gap-2 shadow-xl hover:scale-110 duration-300 ease-in-out transition-all cursor-pointer max-sm:hover:scale-100">
     <header class="w-full px-6 pt-4 flex items-center justify-between">
         <div class="rounded-full border-2 border-light-border px-4 py-2 bg-tag-2">{projectType}</div>
         <div class="rounded-full border-2 border-light-border px-4 py-2 bg-tag-3 font-bold text-sm">{formatted}</div>
     </header>
     <div class="w-full flex flex-col px-6 gap-4">
        
-        <h1 class="text-xl font-bold drop-shadow-2xl">{title}</h1>
-        <p class="text-description">{description}</p>
+        <h1 class="text-4xl font-bold drop-shadow-2xl">{title}</h1>
+        <p class="text-description font-roboto">{description}</p>
         <div class="flex flex-wrap items-center gap-2">
             {tags.map((tag) => (
                 <Tag tag={tag}/>
@@ -41,7 +41,7 @@ const formatted = formattedDate(date, { typeOfAnswer: "year" });
     </div>
     <footer>
         {card_image && (
-            <Image src={card_image} alt="card image" class="w-full h-[190px] bg-slate-950 rounded-b-lg"/>
+            <Image src={card_image} alt="card image" class="w-full h-[190px] bg-slate-950 rounded-b-xl"/>
         )}
     </footer>
 </div>
