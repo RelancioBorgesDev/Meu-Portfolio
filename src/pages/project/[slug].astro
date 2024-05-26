@@ -2,9 +2,10 @@
 import { getCollection } from "astro:content";
 import AllLayout from "../../layouts/AllLayout.astro";
 import type { CollectionEntry } from "astro:content";
-import GoBackButton from "../../components/GoBackButton.astro";
-import Tag from "../../components/Tag";
+import GoBackButton from "../../components/astro/GoBackButton.astro";
+import Tag from "../../components/react/Tag";
 import { BsGithub } from "react-icons/bs";
+import { CiMonitor } from "react-icons/ci";
 
 export const getStaticPaths = async () => {
     const projects = await getCollection("project")
@@ -34,24 +35,35 @@ const {Content} = await project.render()
         <h1 class="text-7xl max-md:text-5xl font-extrabold text-center">{project.data.title}</h1>
         <div class="w-full flex flex-col items-center gap-4">
       
-        <div class="flex items-center gap-4">
+        <div class="flex items-center justify-center flex-wrap gap-4">
             {project.data.tags.map((tag) => (
                 <Tag tag={tag}/>
             ))}
         </div>
         <span class="text-xl font-bold absolute top-2 right-2">{project.data.projectType}</span>
-        <a href="">
-            <BsGithub className="text-white" size={32}/>
-        </a>
+        <div>
+            {project.data.github_link && (
+                 <a href={project.data.github_link} target="_blank" rel="noopener noreferrer">
+                    <BsGithub className="text-white" size={32}/>
+                </a>
+            )}
+            
+            {project.data.web_link && (
+                <a href={project.data.web_link} target="_blank" rel="noopener noreferrer">
+                    <CiMonitor className="text-white" size={32}/>
+                </a>
+            )}
+        </div>
        </div>
         <GoBackButton/>
     </header>
     <section class="w-full flex justify-center items-center px-4">
-        <img src={project.data.video} alt="Gif" class="w-[1000px]"/>
+        <img src={project.data.video} alt="Gif" class="w-[1000px] shadow-xl rounded-xl"/>
     </section>
     
 
-    <article class="w-full prose prose-white prose-headings:text-white prose-xl overflow-visible relative mb-4 prose-st: flex flex-col justify-center text-white mx-auto mt-16 px-4">
+    <article class="w-full prose prose-code:text-white prose-white prose-a:text-blue-500 prose-headings:text-white  prose-strong:text-white prose-xl overflow-visible relative mb-4 prose-st:flex flex-col justify-center text-white mx-auto mt-16 font-roboto ">
         <Content/>
     </article>
 </AllLayout>
+

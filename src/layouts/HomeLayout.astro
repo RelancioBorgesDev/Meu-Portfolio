@@ -1,5 +1,5 @@
 ---
-import Nav from '../components/Nav.astro'
+import Nav from '../components/astro/Nav.astro'
 import Head from './Head.astro';
 
 type Props = {
@@ -11,10 +11,10 @@ const { title } = Astro.props
 
 <html lang="pt-BR">
 	<Head title={title}/>
-	<body class="bg-home h-[100vh-96px] text-main font-inter relative">
-		<section class="mx-auto min-h-[100vh-96px] px-24 py-4 font-sans flex max-lg:flex-col gap-24 mt-24 max-lg:mt-0 max-lg:py-4 max-lg:px-8 max-sm:px-2 max-lg:gap-12">
+	<body class="bg-zinc-900 h-[100vh-96px] text-white font-poetsen-one relative">
+		<section class="mx-auto min-h-[100vh-96px] px-16 font-poetsen-one flex justify-center max-lg:flex-col gap-24 pt-16 max-lg:mt-0 max-lg:py-4 max-lg:px-2 max-sm:px-0 max-lg:gap-12 ">
             <Nav/>
-            <slot/>
+			<slot/>
         </section>
 	</body>
 </html>

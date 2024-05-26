@@ -4,14 +4,10 @@ description: "Explorando os fundamentos da administração no contexto da comput
 author: "Relancio Borges"
 tags: ["Computação"]
 date: 2024-03-28
-card_image: "./images/adm.jpg"
-banner_image: "./images/adm.jpg"
+card_image: "./images/adm-comp.jpg"
+banner_image: "./images/adm-comp.jpg"
 featured: true
 ---
-
-# Contexto histórico da administração
-
-## Teoria Clássica da Administração
 
 A teoria clássica da administração foi inicialmente proposta pelo engenheiro de minas francês Jules Henri Fayol. Em sua visão, a administração tinha como principal objetivo alcançar a máxima eficiência, concentrando-se principalmente em questões econômicas.
 

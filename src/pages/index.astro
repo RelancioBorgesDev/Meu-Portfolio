@@ -1,26 +1,20 @@
 ---
-import { getCollection } from "astro:content"
-import FeaturedProject from "../components/FeaturedProject.astro"
-import SectionHeader from "../components/SectionHeader"
-import Separator from "../components/Separator.astro"
 import HomeLayout from "../layouts/HomeLayout.astro"
-const projects = await getCollection("project")
+import '../globals.css'
+
+import Projetos from "@/components/astro/Projetos.astro"
+import Blog from "@/components/astro/Blog.astro"
+import Sobre from "@/components/astro/Sobre.astro"
+
+
 ---
 
-<HomeLayout title="Inicio | Projetos">
+<HomeLayout title="Relancio Borges">
 
-	<main class="w-full h-full flex flex-col px-4" transition:animate="slide">
-		<SectionHeader hasAll title="Projetos" transition:name="sec-header" link="/projects"/>
-
-		<section class="py-3 flex flex-col gap-8">
-			{projects.map((project) => (
-				project.data.featured && <a href={`/project/${project.slug}`}>
-					<FeaturedProject title={project.data.title} description={project.data.description} tags={project.data.tags} img={project.data.card_image}/>
-				</a>
-				<Separator/>
-			))}
-		</section>
-
+	<main class="w-full h-full flex flex-col gap-16 px-2" transition:animate="slide">
+		<Projetos/>
+		<Sobre/>
+		<Blog/>
 	</main>
 	
 </HomeLayout>

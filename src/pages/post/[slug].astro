@@ -2,11 +2,12 @@
 import type { CollectionEntry } from 'astro:content'
 import { getCollection } from 'astro:content'
 import AllLayout from '../../layouts/AllLayout.astro'
-import GoBackButton from '../../components/GoBackButton.astro'
+import GoBackButton from '../../components/astro/GoBackButton.astro'
 import { countWords, getReadingTime } from '../../utils/readingTime'
 import { LuDot } from 'react-icons/lu'
 import { formattedDate } from '../../utils/formatDate'
 import { Image } from 'astro:assets'
+import AuthorAvatar from "@/components/react/AuthorAvatar"
 
 export const getStaticPaths = async () => {
     const blogPosts = await getCollection("post")
@@ -37,30 +38,39 @@ const format = formattedDate(blogPost.data.date, {typeOfAnswer: "dayMonthAndYear
 ---
 
 <AllLayout title={`Post | ${blogPost.slug}`} >
-    <header class="relative flex flex-col gap-4 ">
-        <div class="relative flex flex-col items-center justify-center h-[600px]">
-            <Image src={blogPost.data.banner_image} width={1024}
-            height={1024/2} alt="Banner Img" class="w-full h-full opacity-40 absolute" format="webp"/>
-           <div class="flex flex-col items-center z-50 gap-2 text-center px-4">
-                <h1 class="text-9xl font-extrabold drop-shadow-2xl max-lg:text-6xl">{blogPost.data.title}</h1>
+    <header class="flex flex-col gap-4 ">
+        <div class="flex flex-col items-center justify-center ">
+            <div class="flex flex-col items-center z-50 gap-2 text-center pt-12 ">
+                <h1 class="text-5xl font-extrabold drop-shadow-2xl max-lg:text-6xl">{blogPost.data.title}</h1>
                 <p class="text-xl">{blogPost.data.description}</p>
+                <section class="flex items-center gap-2 px-4 py-2 ">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center ">
+                            <AuthorAvatar client:load/>
+                        </div>
+                        <h1 class="text-sm">{blogPost.data.author}</h1>
+                    </div>
+                    <LuDot className='text-gray-200/95 max-sm:hidden'/>
+                    <span class="text-sm max-sm:hidden">{readingTime.toFixed(0).toString() + " min de leitura"}</span>
+                    <LuDot className='text-gray-200/95'/>
+                    <span class="text-sm">{format}</span>
+                </section>
            </div>
+         <div class="flex flex-col items-center gap-2">
+            <figure>
+                <Image src={blogPost.data.banner_image} 
+                alt="Banner Img" class="w-full" format="webp"/>
+            </figure>
+            <p class="text-zinc-400 font-medium ">Imagem do site <a href="https://unsplash.com/pt-br">https://unsplash.com/pt-br</a> </p>
+         </div>
+           
         </div>
         <GoBackButton/>
     </header>
 
-    <section class="flex items-center gap-2 px-4 py-2 ">
-        <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-gray-800 rounded-full "/>
-            <h1 class="text-sm">{blogPost.data.author}</h1>
-        </div>
-        <LuDot className='text-gray-200/95 max-sm:hidden'/>
-        <span class="text-sm max-sm:hidden">{readingTime.toFixed(0).toString() + " min de leitura"}</span>
-        <LuDot className='text-gray-200/95'/>
-        <span class="text-sm">{format}</span>
-    </section>
+ 
 
-    <article class="w-full prose prose-white prose-headings:text-white prose-lg overflow-visible relative mb-4 flex flex-col justify-center text-white mx-auto mt-8 px-4 prose-strong:text-white">
+    <article class="w-full font-roboto prose prose-white prose-code:text-blue-500 prose-headings:text-white prose-lg overflow-visible mb-4 max-md:px-4  text-white mx-auto mt-8 prose-strong:text-white">
         <Content/>
     </article>
 </AllLayout>

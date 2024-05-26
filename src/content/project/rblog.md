@@ -1,23 +1,21 @@
 ---
 title: "RBlog"
 description: "Projeto que simula um blog usando Astro JS"
-projectType: "Front End"
+github_link: "https://github.com/RelancioBorgesDev/RBlog"
+web_link: ""
+projectType: "Website"
 tags: ["Typescript", "Astro JS", "TailwindCSS", "Framer Motion"]
 date: 2024-03-18
 card_image: "./images/rblog/blog.png"
-video: "/videos/Calendario Peek.mp4"
-featured: true
+video: "/videos/gifs/Rblog.gif"
+featured: false
 ---
-
-<div  style="display: flex; flex-direction:column; gap: 10px;  justify-content: center;">
-
-# Ideia
 
 O Astro Blog é um projeto projetado para explorar e demonstrar a funcionalidade do framework Astro, construindo um blog totalmente funcional. O objetivo principal deste projeto é entender as capacidades do Astro e como ele pode ser utilizado no desenvolvimento de aplicativos da web, especialmente blogs.
 
 O Astro oferece uma abordagem única para a construção de sites, permitindo que os desenvolvedores usem ferramentas e frameworks familiares como React e TypeScript, enquanto oferecem benefícios de desempenho por meio de suas capacidades de geração de site estático. Ao criar um blog com Astro, meu objetivo é mostrar a facilidade de uso, flexibilidade e vantagens de desempenho deste framework.
 
-# Desenvolvimento
+## Desenvolvimento
 
 ### Tecnologias e ferramentas utilizadas:
 
@@ -43,7 +41,7 @@ O Astro oferece uma abordagem única para a construção de sites, permitindo qu
 - Aproveitamento das capacidades do Astro para geração de site estático, resultando em melhor desempenho e SEO.
 - Estilização com Tailwind CSS para desenvolvimento rápido e design consistente.
 
-# Resultados
+## Resultados
 
 O Astro Blog demonstra com sucesso a eficácia do framework Astro na construção de aplicativos da web modernos, especialmente blogs. Através do projeto, conseguimos alcançar os seguintes resultados:
 
@@ -54,5 +52,3 @@ O Astro Blog demonstra com sucesso a eficácia do framework Astro na construçã
 - Experiência de desenvolvimento aprimorada por meio da integração do TypeScript e Tailwind CSS.
 
 No geral, o Astro Blog serve como um exemplo das capacidades do Astro e seu potencial em simplificar o desenvolvimento web, ao mesmo tempo que oferece resultados excepcionais.
-
-</div>
