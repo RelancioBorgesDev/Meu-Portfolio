@@ -1,47 +1,78 @@
-# Astro Starter Kit: Minimal
+<div align="center" style="margin-bottom: 10px;">
 
-```sh
-npm create astro@latest -- --template minimal
+![Project Logo](./public/logo.svg)
+
+</div>
+<div align="center" style="display: flex; gap: 10px; align-items:center; justify-content: center; margin-top:50px;">
+
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
+![typescript-badge](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![react-badge](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![tailwind-badge](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+</div>
+
+Olá, seja bem vindo esse é o repositório do meu portfólio que contém alguns dos meus projeto, criado utilizando Astro, React e Tailwind CSS. Este projeto tem como objetivo demonstrar como funciona o passo a passo do desenvolvimento dos projetos, qual a ideia por tras de alguns deles, e também ele contém um blog em que eu escrevo sobre alguns assuntos relacionados a tecnologia.
+
+## Instalação
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/RelancioBorgesDev/Meu-Portfolio
+   ```
+
+2. **Navegue até o diretório do projeto:**
+
+   ```bash
+   cd portfolio-frontend
+   ```
+
+3. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+## Uso
+
+Para iniciar o servidor de desenvolvimento, execute:
+
+```bash
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Abra [http://localhost:4321](http://localhost:4321) no seu navegador para ver o projeto.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Estrutura do Projeto
 
-## 🚀 Project Structure
+A estrutura básica do projeto é a seguinte:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
+```
+portfolio-final/
 ├── public/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/         # Componentes React e Astro
+│   ├── content/            # Conteudos md
+│   ├── layouts/            # Layouts das páginas
+│   ├── lib/                # Utils do shadcn
+│   ├── pages/              # Páginas do site
+│   └── utils/              # Funçoes utilitarias
+├── astro.config.mjs        # Configuração do Astro
+├── tailwind.config.mjs      # Configuração do Tailwind CSS
+├── package.json            # Dependências e scripts
+└── README.md               # Documentação do projeto
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Contato
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Para qualquer dúvida ou sugestão, entre em contato através de:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Email:** relancio.dev@gmail.com
+- **LinkedIn:** [meu-linkedin](https://www.linkedin.com/in/relancio-borges-4716a620b/)
+- **GitHub:** [meu-github](https://github.com/RelancioBorgesDev)
+- **Site:** [meu-site](https://github.com/RelancioBorgesDev)
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Obrigado por visitar meu portfólio!
