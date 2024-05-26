@@ -1,6 +1,6 @@
 <div align="center" style="margin-bottom: 10px;">
 
-![Project Logo](./public/logo.svg)
+![Project Logo](./public/favicon.svg)
 
 </div>
 <div align="center" style="display: flex; gap: 10px; align-items:center; justify-content: center; margin-top:50px;">
