@@ -6,7 +6,7 @@ web_link: ""
 projectType: "Aplicação Web"
 tags: ["Typescript", "React", "Next JS", "Tailwind", "shadcn/ui"]
 date: 2022-12-30
-card_image: "./images/listagem/listagem-pedidos.png"
+card_image: "./images/listagem/pedidos.png"
 video: "/videos/gifs/listagem.gif"
 featured: false
 ---
