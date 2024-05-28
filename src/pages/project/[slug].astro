@@ -31,7 +31,11 @@ const {Content} = await project.render()
 ---
 
 <AllLayout title={`Projeto | ${project.slug}`}>
-    <header class="w-full flex flex-col items-center justify-between px-8 pt-20 pb-4 relative gap-8">
+    <header class="w-full flex flex-col  items-center justify-between px-8  max-sm:pt-0 pb-4 relative gap-8">
+        <div class="w-full flex items-center justify-between p-2">
+            <GoBackButton/>
+            <span class="text-xl font-bold">{project.data.projectType}</span>
+        </div>
         <h1 class="text-7xl max-md:text-5xl font-extrabold text-center">{project.data.title}</h1>
         <div class="w-full flex flex-col items-center gap-4">
       
@@ -40,7 +44,7 @@ const {Content} = await project.render()
                 <Tag tag={tag}/>
             ))}
         </div>
-        <span class="text-xl font-bold absolute top-2 right-2">{project.data.projectType}</span>
+      
         <div>
             {project.data.github_link && (
                  <a href={project.data.github_link} target="_blank" rel="noopener noreferrer">
@@ -55,14 +59,14 @@ const {Content} = await project.render()
             )}
         </div>
        </div>
-        <GoBackButton/>
+        
     </header>
     <section class="w-full flex justify-center items-center px-4">
         <img src={project.data.video} alt="Gif" class="w-[1000px] shadow-xl rounded-xl"/>
     </section>
     
 
-    <article class="w-full prose prose-code:text-white prose-white prose-a:text-blue-500 prose-headings:text-white  prose-strong:text-white prose-xl overflow-visible relative mb-4 prose-st:flex flex-col justify-center text-white mx-auto mt-16 font-roboto ">
+    <article class="w-full prose prose-code:text-white prose-white prose-a:text-blue-500 prose-headings:text-white  prose-strong:text-white prose-xl overflow-visible relative mb-4 prose-st:flex flex-col justify-center text-white mx-auto mt-16 font-roboto px-4">
         <Content/>
     </article>
 </AllLayout>
